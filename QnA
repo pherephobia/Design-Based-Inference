@@ -1,0 +1,240 @@
+# Discord QnA
+You can find answers to the some of questions from the video.
+
+## Day 1
+Q. I find the language "unobserved untreated potential outcome" language not ideal.  What you are starting with a structural equation that says that outcome y has two sets of determinants, some observed and some not.
+A. "untreated potential outcome" = x_i = 0
+A. Fix epsilon, then outcome with x=1: y= beta+epsilon, outcome without treatment y = epsilon. as you see epsilon is in both potential outcomes. hence my suggestion that calling epsilon as "unobserved untreated potential outcome" does not make sense.
+
+
+Q. Hi Peter and Kyle, thank you for hosting the workshop. Just a clarifying quesion. Is the word of design-based you used here similar to the same word Dave Card used in his presentation at UC Berkeley. The link of his presentation: [https://www.youtube.com/watch?v=S6xSEiB6E2s](https://www.youtube.com/watch?v=S6xSEiB6E2s). Also, I assume your "outcome models" are different from Card's "model-based"? Thanks
+A. Yes, we are talking about the same thing.
+Q. That paper covers the same contents of what he said at the presentation. I find watching the video is simplier the slide for that presentation: https://davidcard.berkeley.edu/lectures/woytinsky.pdf Thank you, Peter.
+
+Q. the closer we are to BLUE estimates, the closer is epsilon to 'unobserved untreated'?
+
+Q. For some other day, I would be interested in discussion of modeling with population data. Often we have all 50 states or a census of all people sentenced over a period of time. Is the answer resorting to a superpopulation, emphasizing effect sizes over statistical significance, etc.?
+A. This is a good paper that thinks about finite populations: https://arxiv.org/pdf/2008.00602.pdf
+
+Q. Is an elasticity a parameter or an estimand here?
+
+Q. Not really a question, just thinking some stuff through (so feel free to ignore!) Peter is motivating the model as a "randomized experiment," but even if there's no direct randomization involved I think identification holds. Perhaps one way to see this is that a sharp regression discontinuity design is just as much an example of "stratified randomization." Set w to a binary variable for if you exceed the threshold for some running variable, and then 1) G(0) is a point mass at 0, 2) G(1) is a point mass at 1.
+
+Q. I do not see how your result fits with this other result from Angrist etc.: Regress y_i on (1,x_i, bunch of FEs for strata based on w). The OLS estimator of the coefficient of x_i will not give you estimator of ATE because it uses weights that are not necessarily equal to those that ATE requires, namely the distribution of w in the sample. The weights that OLS-FE gives you favor strata that have the most precise estimator of the within strata CATE.  With binary x this is easy to show. It is still true that the OLS estimator of the coefficient of x is the weighted avg of within strata unbiased estimates of the TE i.e. CATEs.
+A. In this case, homogeneous effects are assumed :-); Wednesday discussion will be about heterogeneous effects
+
+Q. If an observation can "belong" to multiple strata, this will still work?
+
+Q. If we have conditional randomization, then isn’t the aux regression of x on the controls estimating the conditional mean mechanical? When would this not occur?
+A. running a regression of x_i on w_i estimates the best linear prediction mechanically (via FWL); but what you need is the conditional expectation of x_i given w_i which is an assumption
+
+Q. Does "control flexibly" have a precise meaning like some sort of quadratic regression? Or is it intentionally a vague thing?
+A. think either dummies for each age or a polynomial in age
+
+Q. would you provide an example from your applied work about those two steps of convincing. thnx/
+
+Q. What types of controls are used in the ex post balance test?
+
+Q. how do we know we're saturating the aux's
+
+Q. Is the distinction b/w applied to and admitted to relevant to your argument? trying to understand.
+
+Q. In layman term, no change in coefficient when adding any sorts of other controls after controlling for designed based controls, is an evidence that designed based controls are as good as random?
+A. it's equivalent (roughly) to showing that the controls are on average equal for the treated and untreated units
+
+Q. what if we don’t have any wi’s that we know of? it’s a precursor to have a theory about the wi’s right
+
+Q. would it make sense to think of design based controls as determinants of costs and benefits in the roy model?
+
+Q. In the potential outcomes framework, the independence assumptions are often stated for the joint distribution of both potential outcomes. Here independence seems to be in terms of the untreated potential outcome only. So are we starting with a weaker assumption than the potential outcomes framework typically does?
+
+Q. Small curiosity: there is any particular reason for choosing the letter x for treatment assigment instead of the classical D? 
+
+Q. would this be classified as "too flexible" then?
+
+Q. how can something be too flexible and not enough flexible at the same time 🙂
+
+Q. hmm. but it isn’t always that the TWFE fully identify the treatment? example if I have county and year fixed effects but my observation is an individual - county - year
+
+Q. it may not be for design set up, but there is always a possibility of naturally occuring experiments that can be captured, using this 'traditional' panel FE?
+
+Q. what if it was indexed "ist" instead of "it" and you include state but not individual fixed effect? would there be potential to bring it back to design based? and treatment is at i level
+
+Q. safe to say one approach is selection on observables and the the other is selection on unobservables?
+
+Q. Is the CEF in these outcome model a bit of a strange concept, in that there's exactly one observation per unit-time (rather than taking a mean over many observations)?
+
+Q. Is TWFE are causal effect?
+
+Q. Is it awkward to think about parallel trends in this context since treatment is continuous?
+
+Q. why "design-based" and not "treatment based"?
+
+Q. So controls to be "controls" as we use (to increase precision) should not be related to treatment assignment in a design based context? 
+A. in a design based setup, the auxiliary controls should not be correlated with the treatment conditional on the design controls yes. They may still increase precision, as you say, because they soak up variation in the outcome
+
+Q. In design-based approach how to think about selection of models (e.g, simple regression, TWFE, diff-in-diff) when dealing with observational studies.
+A. in a design-based approach you probably wouldn't do TWFE / diff-in-diff because it's hard to justify those regression models in terms of something being as good as randomly assigned
+
+Q. Is it possible to use a design-based approach in observational studies without treatment?
+
+Q. How does the propensity score fits in the design based context? 
+
+Q. how are latent variables handled  in design based context?
+
+Q. how do we assure ourselves we have saturation on w? the 'design' intentionality is basically the lottery mechanism and tht is critical to make this design based?
+A Great question; at the end of the day it is untestable. If you have dummy variables for each value of w, then you are saturated and good. If you include a continuous w linearly, you might but are probably unlikely to correctly specify the model for x. One check is to see, after controlling for w, if other characteristics z are uncorrelated with x
+A. At the end of class, Peter also mentioned using models with polynomials (playing a little bit with the functional form) to check for this. 
+
+Q. I did not follow the example about buying Scott's book. isn't that part of the effect? how can you test exclusion in this way?
+
+Q. Tracking closely before: I thought that you made that happen by design, via the matching that you mentioned.
+
+Q. I might have missed this, but what is saturation exactly?
+A. My view is that a saturated model closely follows the CEF 
+
+Q. Peter, on your view an outcome-based model is or not causal?
+
+Q. so what is the current consensus on first stage F-stat?
+
+Q. This is just a terminology question. "design control" refers to w_i in x_i|w_i, epsilon ~ G(w_i), while "auxiliary control" refers to w_i in E(x_i|w_i)? 
+
+Q. are you going to discuss little bit about your non-random exposure to Exogenous shocks paper from Econometrica
+
+Q. Sorry might be a dumb question. The TPS paper you introduce just now, is it that it looks like a conventional DID, but it is "designed" to have less endogeneity problem (like matching control groups).
+A. Yes. Note we're matching not just the pre trends but the prelevels, which is what you'd expect if the instrument is as-good-as-randomly assigned within match strata
+
+Q. where can I find the iv-did note? sorry, I missed it
+A. [https://www.dropbox.com/s/sq1371avtwalmom/DDIV.pdfhttps://www.dropbox.com/s/m6jt5dsqm5xvyml/isoLATE_022018.pdf?raw=1](https://www.dropbox.com/s/sq1371avtwalmom/DDIV.pdfhttps://www.dropbox.com/s/m6jt5dsqm5xvyml/isoLATE_022018.pdf?raw=1)
+
+Q. can you explain saturation in more detail? Unclear if it's a modeling property or a variable property (ex. age is saturated for young adults in our sample, because we have representation from 18-65)
+
+Q. Hi Professor Hull! I’m trying to understand something: within a strata, if treatment is good as random, we are basically estimating the treatment effect within each strata, correct? Isn’t this a similar approach  to propensity score matching? 
+A. yes, thats correct. we'll talk more about the link to matching/weighting tomorrow!
+
+## Day 2
+
+Q. Can you elaborate on the year of birth indicator in the specification? why is it there? bias, precision, something else? Maybe not the right time to ask but why does the first stage need to be causal? what would be the problem if the first stage specification omits explanatory variables correlated with z?
+Q. When doing a balance test, does it matter which way the reg goes? Like reg pwage z vs reg z pwage?
+Q. If we are still in the word of CTE and maintain such assumption: why do we care that the assignment probability varies by YOB?
+Q. Is there a best practice emerging from this regarding the specification of the 1st stage i.e., the model for z (1st stage) should be chosen to maximize predictive performance, i.e., explain as much as possible of the variation in z? if not, how do we choose whether to stop at YOB instead of using other pre-determined observables?
+
+Q. Can one interpret the balance check as a pre-trend test?
+
+Q. What's the reason for controlling yob  from the model-based perspective? Should the reason be the same as from the design-based perspective?
+
+Q. Quick comment: I think the R solution of question 5 is missing the instrument.
+  - I'm opening now the stata solutions for Q5. Shouldn't the exclusion restriction be tested using reg? In the .do file is ivreg2
+A. ivreg2 runs OLS if you dont specify an instrument
+  - what peter said 🙂
+  - but we should fix that to avoid confusion -- kyle could you?
+
+Q. What about performing check balance to pre-select controls to be included in the IV model?
+
+Q. The "check for exclusion" seems very manual and human-based (two humans would check two different things)  is there a way to scale this and automate it?
+
+Q. Just piggybacking on that, the R results for question 5 is different from the Stata results even after including the instrument
+A. I got the same answer
+
+Q. Just to clarify, will we still have the negative weight issue when we only have two periods, one pre-treatment and one post-treatment period?
+
+Q. sorry if this is super basic, but why would we have this? why would it not just instead place very small weights?
+A. the short answer is that residuals on a treatment dummy can be negative but peter will go over it more
+
+Q. silly clarifying question - if \beta_i is independent of x_i, is that also a stronger condition implying Assumption 2 last slide? Are there settings where the stronger variant above is required?
+A. Yes.
+
+Q. why do we keep conditioning on the  Beta i? Is it only applicable because we’re looking at heterogeneous effects here? Could you maybe explain the intuition as to what’s going on there?
+A. maybe b_i there so that 'kind doctor' does not assign treatment to those who can benefit more from it creating bias. Don't know if it helps ) and then this problem only exists in HTE context
+
+Q. Can I understand the assumption 2 as a turly random assignment, while the assumption 1 does not necessarily imply this. Therefore, the design-based regression is robust to heterogenous effects? Thanks. interested in seeing some empirical applications
+
+Q. In RCT, I remember variance/heterogeneity of two groups affect the size/probability of the treated group size. Do we also have what is an enough size issue under the design-based apporach here?
+
+Q. why in last bullet point you write "stronger design assumption"?
+
+Q. probability of getting treated* yeah the overlap issue the overlap issue related paper: [https://www.nber.org/papers/t0330](https://www.nber.org/papers/t0330)
+
+Q. is unweighted ATE giving weight (1/S) to each school-specific estimate of TE? where S=no. schools
+
+Q. Has anyone done anything similar to that F-score paper on IV from a few years back on this, - like a meta analysis of contamination bias in currently published literature? 
+
+Q. One sec: but if strata is the school, why does it matter that one school is more numerous than another for ATE under CIA? is the size of a school only a variance/precision consideration?
+
+Q. are there examples in GPHK paper that show (maybe through simulation) what kind of correlation structures between instruments lead to sign flips? (I think I'm asking about corr(effects, instrument value) here,  but not sure.)
+
+Q. Oof that's annoying on the R&R but that's dope, I'll check it out thanks! Makes sense the more observational the setting the more of a problem it is I would NOT want to do that paper
+
+Q. In observational settings with multiple treatments, can contamination bias be attributed to treatment non-compliance issue.
+
+Q. I'm not sure if I fully understand the application of the exercise. I feel one main takeway is if instrument is as random as possible, we will be more likely to have the minimal contamination condition, i.e., corr(effect, weights) ≈ 0? Is the design-based assumption we talk about here mostly for an IV setting? Or it has broader  context I didn't realize?
+
+Q. If I clustered the SEs at the village-level, but estimated the model without FEs for villages, the model would be correct? 
+
+Q. can we use that elite colleges paper as an example? Should we cluster SEs there on acceptances_rejections group?
+
+Q. If we have panel data, do we cluster at the level of panel?
+
+Q. Is it because the unit is one pair?
+
+Q. In this case, both using FE of the pair as well as clustering at pair level will be wrong?
+
+Q. Just want to confrim. with pair FE, we still need to cluser on pair level?
+
+Q. But what would be a pair fixed effect? We would use the treatment variable as fixed effect?
+
+Q. by the way, what is the where intuition fall short paper?
+
+Q. One follow up quesiton, in the last example, what if we include the subject FE and clsuter on the pair level?
+A. in the last example subjects appear only once. its not a panel so i dont think you want subject FE
+Q. What if researchers have a panel? do you have any preference?
+A. kinda relates to my asnwer above about clustering in a panel depending on how you think treatment is assigned
+A. I understand this part. I think my question is more about if we still need to include subject FE in the panel case
+
+Q. How does the design-based model guide us in dealing with low numbers of clusters? Should we two-way clusters?
+A. well, if you run a village RCT with only five villages you don't really have a big enough sample to make good inferences. That's the design story for low number of clusters
+
+## Day 3
+Q. Hello. I am working on Lab2. Question. For w_i (strata, right?) we don't use all observables as we have to hold off some auxiliary covariates to perform ex post test? Or I am making it up? TY!
+A. for this question you should use all observables as controls as design controls, i mean
+
+Q. Sorry Peter, how did you checked that linear specification is flexible enough?
+Q. I may be asking something dumb, but since in the ACL paper smoking is not random, I can use design-based specification without knowing ex-ante the randomization protocol of the treatment and trust that it will be closer to the true effect of the treatment? I got a little confused with the exercise, because I though we should use design only when there is a variable with exogenous variation (RCTs or IVs).
+A. sounds familiar 😏 https://www.sciencedirect.com/science/article/abs/pii/S0094119022000821
+Q. And s_ik needs to be flexible enough, right?
+A. yeah it's mine 🙂
+
+Q. But you will lose flexibility with probit, no?
+
+Q. is there a good source to see the ways to test the "flexibility"? where can I learn about stacking?
+
+Q. how do you conduct a balance check in a shift-share approach?
+
+Q. Could you elaborate bit more on the difference between linear design-based treatment (one stage estimator) context and SSIV (I assume it's a two stage estimator) for the transforming "shock" level with controls? Or they don't have too much difference?
+
+Q. How did you decided which year was the correct to use for doing the redrawing? In other words, why 2016?
+
+Q. One quick question about the last part: the BH (2023) paper have code available with the simulation performed for computing mu_i? 
+
+Q. Peter , how you deal when the units of aggregation are only a few? is it important?
+
+Q. is it possible to"ssaggregate" when the sum of share is 1?
+
+Q. what parameter were we getting with the shift-share iv?
+
+Q. Interested in your thoughts of recovering the whole distribution from LATE Interested in seeing how we will learn the joint distribution?
+
+Q. just to clarify, the theta vector here is \pi, \mu, plus any parameters on \nu_i ?
+
+Q. What is the relative importance of institutional details in design vs. outcome modeling.
+A. There's a review article in the github: https://github.com/Mixtape-Sessions/Design-Based-Inference/blob/main/Readings/Borusyak_Hull_Jaravel_2023.pdf
+
+Q. has anyone looked into how design based controls compare to DAG's backdoor criterion?
+
+Q. Hi Peter, could I ask you one more questiom? If I have two layer, i.e., the strata and subject. Then I cluster the shock on the strata, what if I have many strata but each strata has about 10-20 subjects? This will affect SE?
+
+Q. just a follow up one. very few subject in a strata will not bias the SE?
+A. correct. Suppose you have just one person per strata. Then its like you have a usual experiment at the person level clustered SEs wll be the same as robust you still need a lot of strata
+
+
+
